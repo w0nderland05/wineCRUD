@@ -1,12 +1,15 @@
-# Backend Developer
+***
+# 와인CRUD구현
+:ab: 사용언어 : kotlin <br>
+:computer: 개발환경: SpringBoot<br>
 
-## Steps
 
-1. main branch로 부터 새로운 branch를 생성합니다.
-2. 요구 사항(Requirements)을 만족하는 API를 새로운 branch에 구현합니다.
-3. 생성한 branch를 main으로 merge하는 merge(pull) request를 생성합니다.
-
-## Requirements
+## 순서
+① 엔티티 설계<br>
+② CRUD서비스 구현<br>
+③ 컨트롤러<br>
+***
+## 목표 
 
 * [data](data) 폴더의 파일을 참고하여 entity 설계
 * 해당 데이터들을 삽입, 수정, 삭제, 조회할 수 있는 API 구현
@@ -48,7 +51,8 @@
         * 다수 조회 시: 수입사 이름
         * 단일 조회 시: 수입사 이름, 수입사의 와인
 
-## Data description
+***
+## Data 설명
 
 ### Wine
 
@@ -128,3 +132,36 @@
 * `name_english`: 지역 이름(영어)
 * `parent_name_korean`: 상위 지역 이름(한글)
 * `parent_name_english`: 상위 지역 이름(영어)
+***
+
+## 구현내용
+1.엔티티 생성
+-Wine
+-WineAroma
+-WineParing
+-Winery
+-Region
+-Grape
+-GrapeShare
+-Importer
+
+2.각 엔티티별 레포지토리 생성
+*Querydsl사용
+
+3.CRUD서비스
+ -WineService
+-WineryService
+-RegionService
+-GrapeService
+-ImporterService
+*페이징 처리
+
+4.각 서비스 별 컨트롤러 구현
+* JSON사용
+
+나머지 데이터들은
+-GrapeShare
+-WineAroma
+-WineParing
+관련 엔티티     @OneToOne 매핑  즉시로딩, caseCade 기능을 이용해서 CRUD가 쉽게 되도록 구현
+
